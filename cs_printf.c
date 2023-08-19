@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 {
 	int count;
 	va_list args;
-
+	
 	count = 0;
 	va_start(args, format);
 	while (*format != '\0')
@@ -40,6 +40,13 @@ int _printf(const char *format, ...)
 
 				write(1, buffer, len);
 				count += len;
+			}
+			else if (*format == 'b')
+			{
+				unsigned int num = va_arg(args, unsigned int);
+
+				print_binary(num);
+				count++;
 			}
 			else if (*format == '%')
 			{
