@@ -8,7 +8,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int c = 0;
+	int count = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -19,17 +19,17 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == 'c')
 			{
-				int cs = va_arg(args, int);
+				int c = va_arg(args, int);
 
-				write(1, &cs, 1);
-				c++;
+				write(1, &c, 1);
+				count++;
 			}
 			else if (*format == 's')
 			{
 				char *s = va_arg(args, char *);
 
 				write(1, s, strlen(s));
-				c += strlen(s);
+				count += strlen(s);
 			}
 			else if (*format == 'd' || *format == 'i')
 			{
@@ -38,28 +38,28 @@ int _printf(const char *format, ...)
 				int len = snprintf(buffer, sizeof(buffer), "%d", d);
 
 				write(1, buffer, len);
-				c += len;
+				count += len;
 			}
 			else if (*format == 'b')
 			{
 				unsigned int num = va_arg(args, unsigned int);
 
 				print_binary(num);
-				c++;
+				count++;
 			}
 			else if (*format == '%')
 			{
 				write(1, "%", 1);
-				c++;
+				count++;
 			}
 		}
 		else
 		{
 			write(1, format, 1);
-			c++;
+			count++;
 		}
 		format++;
 	}
 	va_end(args);
-	return (c);
+	return (count);
 }
