@@ -8,15 +8,9 @@
  */
 int _printf(const char *format, ...)
 {
-	int c;
+	int c = 0;
 	va_list args;
-<<<<<<< HEAD
-	
-	count = 0;
-=======
 
-	c = 0;
->>>>>>> 92c5259105de52a77a28f985f057f0f2e0fb6082
 	va_start(args, format);
 	while (*format != '\0')
 	{
@@ -25,9 +19,9 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == 'c')
 			{
-				int c = va_arg(args, int);
+				int cs = va_arg(args, int);
 
-				write(1, &c, 1);
+				write(1, &cs, 1);
 				c++;
 			}
 			else if (*format == 's')
@@ -51,7 +45,7 @@ int _printf(const char *format, ...)
 				unsigned int num = va_arg(args, unsigned int);
 
 				print_binary(num);
-				count++;
+				c++;
 			}
 			else if (*format == '%')
 			{
