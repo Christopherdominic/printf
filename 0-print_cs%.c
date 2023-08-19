@@ -9,15 +9,42 @@
 int _printf(const char *format, ...)
 {
 	int count;
-	char c;
-	char *s;
-	char %;
+	va_list args;
 
 	count = 0;
-	va_list args;
 	va_start(args, format);
+	while (*format != '\0')
+	{
+		if (*format == '%')
+		{
+			format++;
+			if (*format == 'c')
+			{
+				int c = va_arg(args, int);
 
-	va_arg(args, int);
+				write(1, &c, 1);
+				count++;
+			}
+			else if (*format == 's')
+			{
+				char *s = va_arg(args, char *);
 
-	va_end(format)
+				write(1, s, strlen(s));
+				count += strlen(s);
+			}
+			else if (*format == '%')
+			{
+				write(1, "%", 1);
+				count++;
+			}
+		}
+		else
+		{
+			write(1, format, 1);
+			count++;
+		}
+		format++;
+	}
+	va_end(args);
+	return (count);
 }
