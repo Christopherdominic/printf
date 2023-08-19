@@ -32,6 +32,15 @@ int _printf(const char *format, ...)
 				write(1, s, strlen(s));
 				count += strlen(s);
 			}
+			else if (*format == 'd' || *format == 'i')
+			{
+				int d = va_arg(args, int);
+				char buffer[20];
+				int len = snprintf(buffer, sizeof(buffer), "%d", d);
+
+				write(1, buffer, len);
+				count += len;
+			}
 			else if (*format == '%')
 			{
 				write(1, "%", 1);
