@@ -8,10 +8,10 @@
  */
 int _printf(const char *format, ...)
 {
-	int count;
+	int c;
 	va_list args;
 
-	count = 0;
+	c = 0;
 	va_start(args, format);
 	while (*format != '\0')
 	{
@@ -23,14 +23,14 @@ int _printf(const char *format, ...)
 				int c = va_arg(args, int);
 
 				write(1, &c, 1);
-				count++;
+				c++;
 			}
 			else if (*format == 's')
 			{
 				char *s = va_arg(args, char *);
 
 				write(1, s, strlen(s));
-				count += strlen(s);
+				c += strlen(s);
 			}
 			else if (*format == 'd' || *format == 'i')
 			{
@@ -39,21 +39,21 @@ int _printf(const char *format, ...)
 				int len = snprintf(buffer, sizeof(buffer), "%d", d);
 
 				write(1, buffer, len);
-				count += len;
+				c += len;
 			}
 			else if (*format == '%')
 			{
 				write(1, "%", 1);
-				count++;
+				c++;
 			}
 		}
 		else
 		{
 			write(1, format, 1);
-			count++;
+			c++;
 		}
 		format++;
 	}
 	va_end(args);
-	return (count);
+	return (c);
 }
