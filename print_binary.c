@@ -6,7 +6,7 @@
  *
  * Return: nothing
  */
-void print_binary(unsigned int num)
+int print_binary(unsigned int num)
 {
 	char digit;
 
@@ -15,5 +15,5 @@ void print_binary(unsigned int num)
 		print_binary(num / 2);
 	}
 	digit = '0' + (num % 2);
-	write(1, &digit, 1);
+	return (write(1, &digit, 1));
 }

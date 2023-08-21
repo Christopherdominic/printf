@@ -23,8 +23,7 @@ int _printf(const char *format, ...)
 			{
 				int c = va_arg(args, int);
 
-				write(1, &c, 1);
-				count++;
+				count += write(1, &c, 1);
 			}
 			else if (*format == 's')
 			{
@@ -34,32 +33,14 @@ int _printf(const char *format, ...)
 				count += strlen(s);
 			}
 			else if (*format == 'd' || *format == 'i')
-			{
-				int d = va_arg(args, int);
-				char buffer[20];
-				int len = snprintf(buffer, sizeof(buffer), "%d", d);
-
-				write(1, buffer, len);
-				count += len;
-			}
+				count += print_d_i();
 			else if (*format == 'b')
-			{
-				unsigned int num = va_arg(args, unsigned int);
-
-				print_binary(num);
-				count++;
-			}
+				count += print_binary(va_arg(args, unsigned int));
 			else if (*format == '%')
-			{
-				write(1, "%", 1);
-				count++;
-			}
+				count += write(1, "%", 1);
 		}
 		else
-		{
-			write(1, format, 1);
-			count++;
-		}
+			count += write(1, format, 1);
 		format++;
 	}
 	va_end(args);
