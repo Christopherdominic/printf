@@ -10,4 +10,5 @@ void print_binary(unsigned int num);
 void print_hex(unsigned int hex);
 void print_d_i(void);
 void print_u(void);
+void print_r(void);
 #endif

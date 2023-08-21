@@ -53,6 +53,11 @@ int _printf(const char *format, ...)
 				print_u();
 				count++;
 			}
+			else if (*format == 'r')
+			{
+				print_r();
+				count++;
+			}
 
 			else if (*format == '%')
 				count += write(1, "%", 1);
