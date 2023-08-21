@@ -6,12 +6,14 @@
  *
  * Return: nothing
  */
-void print_hex(unsigned int num)
+void print_hex(unsigned int hex)
 {
 	char digit;
-
-	if (num > 1)
-		print_hex(num / 16);
-	digit = "0123456789ABCDEF"[num % 16];
+	
+	if (hex > 1)
+	{
+		print_hex(hex / 16);
+	}
+	digit = "0123456789ABCDEF"[hex % 16];
 	write(1, &digit, 1);
 }

@@ -40,14 +40,20 @@ int _printf(const char *format, ...)
 
 			else if (*format == 'b')
 			{
-				print_binary(va_arg(args, int));
+				print_binary(va_arg(args, unsigned int));
 				count++;
 			}
 			else if (*format == 'x' || *format == 'X')
 			{
-				print_hex(va_arg(args, int));
+				print_hex(va_arg(args, unsigned int));
 				count++;
 			}
+			else if (*format == 'u')
+			{
+				print_u();
+				count++;
+			}
+
 			else if (*format == '%')
 				count += write(1, "%", 1);
 		}
