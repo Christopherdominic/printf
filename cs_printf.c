@@ -33,9 +33,21 @@ int _printf(const char *format, ...)
 				count += strlen(s);
 			}
 			else if (*format == 'd' || *format == 'i')
-				count += print_d_i();
+			{
+				print_d_i();
+				count++;
+			}
+
 			else if (*format == 'b')
-				count += print_binary(va_arg(args, unsigned int));
+			{
+				print_binary(va_arg(args, int));
+				count++;
+			}
+			else if (*format == 'x' || *format == 'X')
+			{
+				print_hex(va_arg(args, int));
+				count++;
+			}
 			else if (*format == '%')
 				count += write(1, "%", 1);
 		}

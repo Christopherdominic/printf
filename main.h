@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <string.h>
 int _printf(const char *format, ...);
-int print_binary(unsigned int num);
-int print_d_i(void);
+void print_binary(unsigned int num);
+void print_hex(unsigned int num);
+void print_d_i(void);
 #endif
