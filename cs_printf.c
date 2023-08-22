@@ -21,12 +21,14 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			if (*format == '\0')
+				break;
 			if (*format == 'c')
-				print_char(va_arg(args, int), &count);
+				format += print_char(va_arg(args, int), &count);
 			else if (*format == 's')
-				print_string(va_arg(args, const char *), &count);
+				format += print_string(va_arg(args, const char *), &count);
 			else if (*format == '%')
-				print_percent(&count);
+				format += print_percent(&count);
 			else if (*format == 'd' || *format == 'i')
 				print_integer(va_arg(args, int), &count);
 			else if (*format == 'b')
