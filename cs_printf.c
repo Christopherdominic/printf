@@ -32,40 +32,13 @@ int _printf(const char *format, ...)
 				write(1, s, strlen(s));
 				count += strlen(s);
 			}
-			else if (*format == 'd' || *format == 'i')
-			{
-				print_d_i();
-				count++;
-			}
-
-			else if (*format == 'b')
-			{
-				print_binary(va_arg(args, unsigned int));
-				count++;
-			}
-			else if (*format == 'x' || *format == 'X')
-			{
-				print_hex(va_arg(args, unsigned int));
-				count++;
-			}
-			else if (*format == 'u')
-			{
-				print_u();
-				count++;
-			}
-			else if (*format == 'r')
-			{
-				print_r();
-				count++;
-			}
-
 			else if (*format == '%')
-				count += write(1, "%", 1);
+				write(1, "%", 1);
 		}
-		else
-			count += write(1, format, 1);
+		count += write(1, format, 1);
 		format++;
 	}
+
 	va_end(args);
 	return (count);
 }
