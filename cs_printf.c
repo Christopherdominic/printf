@@ -35,8 +35,10 @@ int _printf(const char *format, ...)
 				print_unsigned_int(va_arg(args, unsigned int), &count);
 			else if (*format == 'o')
 				print_octal(va_arg(args, unsigned int), &count);
-			else if (*format == 'x' || *format == 'X')
+			else if (*format == 'x')
 				print_x(va_arg(args, unsigned int), &count);
+			else if (*format == 'X')
+				print_HEX(va_arg(args, unsigned int), &count);
 		}
 		else
 			print_char(*format, &count);
