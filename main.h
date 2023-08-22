@@ -16,4 +16,5 @@ int print_octal(unsigned int num, int *count);
 int print_x(unsigned int num, int *count);
 int print_HEX(unsigned int num, int *count);
 int print_S(const char *s, int *count);
+int print_p(const void *ptr, int *count);
 #endif

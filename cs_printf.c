@@ -41,6 +41,8 @@ int _printf(const char *format, ...)
 				print_HEX(va_arg(args, unsigned int), &count);
 			else if (*format == 'S')
 				print_S(va_arg(args, const char *), &count);
+			else if (*format == 'p')
+				print_p(va_arg(args, const void *), &count);
 		}
 		else
 			print_char(*format, &count);
