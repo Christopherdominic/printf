@@ -5,15 +5,13 @@
  *@s: pointer to the string
  * Return: count
  */
-int print_string(const char *s)
+int print_string(const char *s, int *count)
 {
-	int count = 0;
-
 	while (*s)
 	{
 		write(1, s, 1);
 		s++;
-		count++;
+		(*count)++;
 	}
-	return (count);
+	return (*count);
 }

@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 			if (*format == 'c')
 				print_char(va_arg(args, int), &count);
 			else if (*format == 's')
-				count += print_string(va_arg(args, const char *));
+				print_string(va_arg(args, const char *), &count);
 			else if (*format == '%')
 				print_percent(&count);
 			else if (*format == 'd' || *format == 'i')
