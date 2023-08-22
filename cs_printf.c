@@ -4,9 +4,9 @@
 
 /**
  * _printf - function that produces output according to a format
- * @format: pointer to string format
+ * @format: pointer to string format 
  *
- * Return: strings to the standard output
+ * Return: returns strings to the standard output
  */
 int _printf(const char *format, ...)
 {
