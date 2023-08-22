@@ -33,6 +33,8 @@ int _printf(const char *format, ...)
 				print_binary(va_arg(args, int), &count);
 			else if (*format == 'u')
 				print_unsigned_int(va_arg(args, unsigned int), &count);
+			else if (*format == 'o')
+				print_octal(va_arg(args, unsigned int), &count);
 		}
 		else
 			print_char(*format, &count);
