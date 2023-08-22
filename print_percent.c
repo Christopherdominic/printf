@@ -2,7 +2,7 @@
 
 /**
  * print_percent - function for %% specifier
- *
+ * @count: pointer to the count variable
  * Return: count
  */
 int print_percent(int *count)

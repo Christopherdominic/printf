@@ -2,7 +2,7 @@
 
 /**
  * print_string - function for %s specifier
- *
+ *@s: pointer to the string
  * Return: count
  */
 int print_string(const char *s)
