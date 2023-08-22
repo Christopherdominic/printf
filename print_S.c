@@ -21,6 +21,7 @@ int print_S(const char *s, int *count)
 		else
 		{
 			char escape[5];
+
 			snprintf(escape, sizeof(escape), "\\x%02X", (unsigned char)*s);
 			write(1, escape, 4);
 			(*count) += 4;
