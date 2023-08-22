@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 			else if (*format == 'X')
 				print_HEX(va_arg(args, unsigned int), &count);
 			else if (*format == 'S')
-				count += print_S(va_arg(args, const char *), &count);
+				print_S(va_arg(args, const char *), &count);
 		}
 		else
 			print_char(*format, &count);
