@@ -13,4 +13,5 @@ int print_integer(int num, int *count);
 int print_binary(unsigned int num, int *count);
 int print_unsigned_int(unsigned int num, int *count);
 int print_octal(unsigned int num, int *count);
+int print_x(unsigned int num, int *count);
 #endif

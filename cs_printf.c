@@ -35,6 +35,8 @@ int _printf(const char *format, ...)
 				print_unsigned_int(va_arg(args, unsigned int), &count);
 			else if (*format == 'o')
 				print_octal(va_arg(args, unsigned int), &count);
+			else if (*format == 'x' || *format == 'X')
+				print_x(va_arg(args, unsigned int), &count);
 		}
 		else
 			print_char(*format, &count);
