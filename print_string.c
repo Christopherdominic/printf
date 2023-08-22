@@ -5,9 +5,15 @@
  *
  * Return: count
  */
-int print_string(char *s, int *count)
+int print_string(const char *s)
 {
-	write(1, s, strlen(s));
-	*count += strlen(s);
-	return (*count);
+	int count = 0;
+
+	while (*s)
+	{
+		write(1, s, 1);
+		s++;
+		count++;
+	}
+	return (count);
 }
