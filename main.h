@@ -9,4 +9,5 @@ int _printf(const char *format, ...);
 int print_char(int c, int *count);
 int print_string(char *s, int *count);
 int print_percent(int *count);
+int print_integer(int num, int *count);
 #endif

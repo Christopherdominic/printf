@@ -27,6 +27,8 @@ int _printf(const char *format, ...)
 				print_string(va_arg(args, char *), &count);
 			else if (*format == '%')
 				print_percent(&count);
+			else if (*format == 'd' || *format == 'i')
+				print_integer(va_arg(args, int), &count);
 		}
 		else
 			print_char(*format, &count);
